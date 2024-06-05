@@ -1,0 +1,6 @@
+fastapi
+replicate
+dotenv
+uvicorn
+pydantic
+typing
