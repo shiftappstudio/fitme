@@ -45,10 +45,3 @@ async def generate_image(
 
     # Handle response (replace with logic to process actual response data)
     return {"img": output}
-
-
-if __name__ == "__main__":
-    # FastAPI on port 8000 (modify as needed)
-    import uvicorn
-
-    uvicorn.run(app_fastapi, host="0.0.0.0", port=8000)
