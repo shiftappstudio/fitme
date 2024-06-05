@@ -1,14 +1,13 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import replicate
-from dotenv import find_dotenv, load_dotenv
+from dotenv import load_dotenv
 
 # Finding variables
-dotenv_path = find_dotenv()
-load_dotenv(dotenv_path)
+load_dotenv()
 
 # FastAPI app
-app_fastapi = FastAPI()
+app = FastAPI()
 
 
 class generateRequest(BaseModel):
@@ -17,12 +16,12 @@ class generateRequest(BaseModel):
     garmentImage: str
 
 
-@app_fastapi.get("/home")
+@app.get("/home")
 async def root():
     return {"greeting": "Hello, World!", "message": "Welcome to FastAPI!"}
 
 
-@app_fastapi.post("/generate")
+@app.post("/generate")
 async def generate_image(
     request: generateRequest,
 ):
