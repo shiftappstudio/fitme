@@ -14,6 +14,7 @@ class generateRequest(BaseModel):
     category: str
     humanImage: str
     garmentImage: str
+    garmentDescription: str
 
 
 @app.get("/home")
@@ -28,7 +29,7 @@ async def generate_image(
 
     input = {
         "category": request.category,
-        "garment_des": "",
+        "garment_des": request.garmentDescription,
         "garm_img": request.garmentImage,
         "human_img": request.humanImage,
     }
